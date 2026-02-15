@@ -3,20 +3,169 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Online Calculators</title>
-<link rel="stylesheet" href="style.css">
+<title>Free Online Calculator Tools – All-in-One Tool Hub</title>
+<meta name="description" content="Free online calculator tools including Percentage Calculator, Age Calculator, GST Calculator, EMI Calculator, and Word Counter. Fast, modern, and easy to use.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f3f4f6;
+  display: flex;
+  min-height: 100vh;
+  color: #111827;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background: white;
+  padding: 30px 20px;
+  border-right: 1px solid #e5e7eb;
+}
+
+.sidebar h2 {
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+.sidebar a {
+  display: block;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  text-decoration: none;
+  color: #374151;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.sidebar a:hover {
+  background: #eef2ff;
+  color: #4f46e5;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 40px;
+}
+
+h1 {
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+
+.intro {
+  margin-bottom: 30px;
+  color: #4b5563;
+  max-width: 600px;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.tool-card {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  text-decoration: none;
+  color: #111827;
+  transition: all 0.2s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.tool-card h3 {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.tool-card p {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .main {
+    padding: 20px;
+  }
+}
+</style>
 </head>
+
 <body>
 
-<h1>Free Online Calculators</h1>
+<div class="sidebar">
+  <h2>Calculator Tools</h2>
+  <a href="index.html">🏠 Home</a>
+  <a href="percentage-calculator.html">📊 Percentage</a>
+  <a href="age-calculator.html">🎂 Age</a>
+  <a href="gst-calculator.html">💰 GST</a>
+  <a href="emi-calculator.html">🏦 EMI</a>
+  <a href="word-counter.html">📝 Word Counter</a>
+</div>
 
-<ul>
-  <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
-  <li><a href="age-calculator.html">Age Calculator</a></li>
-  <li><a href="gst-calculator.html">GST Calculator</a></li>
-  <li><a href="emi-calculator.html">EMI Calculator</a></li>
-  <li><a href="word-counter.html">Word Counter</a></li>
-</ul>
+<div class="main">
+  <h1>All-in-One Calculator Tools</h1>
+  <p class="intro">
+    Use our free online calculator tools to quickly solve financial, academic, and daily calculations.
+    Fast, modern, and easy-to-use tools designed for students, professionals, and businesses.
+  </p>
+
+  <div class="tools-grid">
+
+    <a href="percentage-calculator.html" class="tool-card">
+      <h3>Percentage Calculator</h3>
+      <p>Calculate percentage, increase, and decrease instantly.</p>
+    </a>
+
+    <a href="age-calculator.html" class="tool-card">
+      <h3>Age Calculator</h3>
+      <p>Find your exact age in years, months, and days.</p>
+    </a>
+
+    <a href="gst-calculator.html" class="tool-card">
+      <h3>GST Calculator</h3>
+      <p>Add or remove GST from any amount easily.</p>
+    </a>
+
+    <a href="emi-calculator.html" class="tool-card">
+      <h3>EMI Calculator</h3>
+      <p>Calculate loan EMI, total interest, and total payment.</p>
+    </a>
+
+    <a href="word-counter.html" class="tool-card">
+      <h3>Word Counter</h3>
+      <p>Count words, characters, sentences, and reading time.</p>
+    </a>
+
+  </div>
+</div>
 
 </body>
 </html>
