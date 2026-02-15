@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Age Calculator – Free Online Tool</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f3f4f6;
+  display: flex;
+  min-height: 100vh;
+  color: #111827;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background: white;
+  padding: 30px 20px;
+  border-right: 1px solid #e5e7eb;
+}
+
+.sidebar h2 {
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+.sidebar a {
+  display: block;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  text-decoration: none;
+  color: #374151;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.sidebar a:hover {
+  background: #eef2ff;
+  color: #4f46e5;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 40px;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  max-width: 600px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 15px 0;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: none;
+  background: #4f46e5;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #4338ca;
+}
+
+.result {
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .main {
+    padding: 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+  <h2>Calculator Tools</h2>
+  <a href="index.html">🏠 Home</a>
+  <a href="percentage-calculator.html">📊 Percentage</a>
+  <a href="age-calculator.html">🎂 Age</a>
+  <a href="gst-calculator.html">💰 GST</a>
+  <a href="emi-calculator.html">🏦 EMI</a>
+  <a href="word-counter.html">📝 Word Counter</a>
+</div>
+
+<div class="main">
+  <div class="card">
+    <h1>Age Calculator</h1>
+
+    <label>Select Your Date of Birth</label>
+    <input type="date" id="dob">
+
+    <button onclick="calculateAge()">Calculate Age</button>
+
+    <div class="result" id="result"></div>
+  </div>
+</div>
+
+<script>
+function calculateAge() {
+  let dob = document.getElementById("dob").value;
+
+  if (!dob) {
+    document.getElementById("result").innerText = "Please select your date of birth.";
+    return;
+  }
+
+  let birthDate = new Date(dob);
+  let today = new Date();
+
+  let years = today.getFullYear() - birthDate.getFullYear();
+  let months = today.getMonth() - birthDate.getMonth();
+  let days = today.getDate() - birthDate.getDate();
+
+  if (days < 0) {
+    months--;
+    days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+  }
+
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+
+  document.getElementById("result").innerText =
+    "You are " + years + " years, " + months + " months, and " + days + " days old.";
+}
+</script>
+
+</body>
+</html>
