@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Percentage Calculator Online – Calculate Percentage Instantly</title>
+<meta name="description" content="Use our free percentage calculator to calculate percentage of a number, percentage increase, and percentage decrease instantly. Fast and easy to use.">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+h1 {
+    text-align: center;
+}
+
+.calculator-section {
+    margin-bottom: 30px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.result {
+    margin-top: 10px;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Free Percentage Calculator</h1>
+<p>This percentage calculator helps you quickly calculate percentage of a number, percentage increase, and percentage decrease. Simple, fast, and accurate.</p>
+
+<!-- Percentage Of -->
+<div class="calculator-section">
+<h2>1. What is X% of Y?</h2>
+<input type="number" id="percent1" placeholder="Enter percentage (X)">
+<input type="number" id="number1" placeholder="Enter number (Y)">
+<button onclick="calculatePercentage()">Calculate</button>
+<div class="result" id="result1"></div>
+</div>
+
+<!-- Percentage Increase -->
+<div class="calculator-section">
+<h2>2. Percentage Increase</h2>
+<input type="number" id="original2" placeholder="Original value">
+<input type="number" id="increase2" placeholder="Increase amount">
+<button onclick="calculateIncrease()">Calculate</button>
+<div class="result" id="result2"></div>
+</div>
+
+<!-- Percentage Decrease -->
+<div class="calculator-section">
+<h2>3. Percentage Decrease</h2>
+<input type="number" id="original3" placeholder="Original value">
+<input type="number" id="decrease3" placeholder="Decrease amount">
+<button onclick="calculateDecrease()">Calculate</button>
+<div class="result" id="result3"></div>
+</div>
+
+<hr>
+
+<h2>How to Use This Percentage Calculator</h2>
+<p>To calculate percentage of a number, simply enter the percentage value and the number you want to calculate from. Click calculate to instantly see the result.</p>
+
+<p>For percentage increase, enter the original value and the increase amount. The calculator will show the percentage growth.</p>
+
+<p>For percentage decrease, enter the original value and the decrease amount. The tool will calculate the percentage decrease instantly.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>How do you calculate percentage?</h3>
+<p>Percentage is calculated by dividing the value by the total and multiplying by 100.</p>
+
+<h3>What is percentage increase formula?</h3>
+<p>((Increase ÷ Original Value) × 100)</p>
+
+<h3>What is percentage decrease formula?</h3>
+<p>((Decrease ÷ Original Value) × 100)</p>
+
+</div>
+
+<script>
+function calculatePercentage() {
+    let percent = document.getElementById("percent1").value;
+    let number = document.getElementById("number1").value;
+    let result = (percent / 100) * number;
+    document.getElementById("result1").innerText = "Result: " + result;
+}
+
+function calculateIncrease() {
+    let original = document.getElementById("original2").value;
+    let increase = document.getElementById("increase2").value;
+    let result = (increase / original) * 100;
+    document.getElementById("result2").innerText = "Increase: " + result.toFixed(2) + "%";
+}
+
+function calculateDecrease() {
+    let original = document.getElementById("original3").value;
+    let decrease = document.getElementById("decrease3").value;
+    let result = (decrease / original) * 100;
+    document.getElementById("result3").innerText = "Decrease: " + result.toFixed(2) + "%";
+}
+</script>
+
+</body>
+</html>
