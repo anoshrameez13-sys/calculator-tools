@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Counter – Free Online Character & Word Counter</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f3f4f6;
+  display: flex;
+  min-height: 100vh;
+  color: #111827;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background: white;
+  padding: 30px 20px;
+  border-right: 1px solid #e5e7eb;
+}
+
+.sidebar h2 {
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+.sidebar a {
+  display: block;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  text-decoration: none;
+  color: #374151;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.sidebar a:hover {
+  background: #eef2ff;
+  color: #4f46e5;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 40px;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  max-width: 800px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 180px;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.stats {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.stat-box {
+  background: #f9fafb;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.clear-btn {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: #ef4444;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.clear-btn:hover {
+  background: #dc2626;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .main {
+    padding: 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+  <h2>Calculator Tools</h2>
+  <a href="index.html">🏠 Home</a>
+  <a href="percentage-calculator.html">📊 Percentage</a>
+  <a href="age-calculator.html">🎂 Age</a>
+  <a href="gst-calculator.html">💰 GST</a>
+  <a href="emi-calculator.html">🏦 EMI</a>
+  <a href="word-counter.html">📝 Word Counter</a>
+</div>
+
+<div class="main">
+  <div class="card">
+    <h1>Word Counter</h1>
+
+    <textarea id="textInput" placeholder="Type or paste your text here..." oninput="countText()"></textarea>
+
+    <div class="stats">
+      <div class="stat-box" id="wordCount">Words: 0</div>
+      <div class="stat-box" id="charCount">Characters: 0</div>
+      <div class="stat-box" id="charNoSpace">Characters (No Spaces): 0</div>
+      <div class="stat-box" id="sentenceCount">Sentences: 0</div>
+      <div class="stat-box" id="paragraphCount">Paragraphs: 0</div>
+      <div class="stat-box" id="readingTime">Reading Time: 0 min</div>
+    </div>
+
+    <button class="clear-btn" onclick="clearText()">Clear Text</button>
+
+  </div>
+</div>
+
+<script>
+function countText() {
+  let text = document.getElementById("textInput").value;
+
+  let words = text.trim().match(/\S+/g);
+  let wordCount = words ? words.length : 0;
+
+  let charCount = text.length;
+  let charNoSpace = text.replace(/\s/g, "").length;
+
+  let sentences = text.split(/[.!?]+/).filter(Boolean);
+  let sentenceCount = sentences.length;
+
+  let paragraphs = text.split(/\n+/).filter(Boolean);
+  let paragraphCount = paragraphs.length;
+
+  let readingTime = Math.ceil(wordCount / 200);
+
+  document.getElementById("wordCount").innerText = "Words: " + wordCount;
+  document.getElementById("charCount").innerText = "Characters: " + charCount;
+  document.getElementById("charNoSpace").innerText = "Characters (No Spaces): " + charNoSpace;
+  document.getElementById("sentenceCount").innerText = "Sentences: " + sentenceCount;
+  document.getElementById("paragraphCount").innerText = "Paragraphs: " + paragraphCount;
+  document.getElementById("readingTime").innerText = "Reading Time: " + readingTime + " min";
+}
+
+function clearText() {
+  document.getElementById("textInput").value = "";
+  countText();
+}
+</script>
+
+</body>
+</html>
